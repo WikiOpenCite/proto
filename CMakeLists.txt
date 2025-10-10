@@ -20,17 +20,17 @@ include(cmake/variables.cmake)
 
 add_library(
     citescoop-proto_citescoop-proto
-    src/proto.cc
+    src/citation_group.proto
+    src/citation.proto
+    src/extracted_citation.proto
+    src/identifiers.proto
+    src/language.proto
+    src/revision_citations.proto
+    src/revision.proto
+    src/revisions_group.proto
+    src/url.proto
 )
 add_library(wikiopencite::proto ALIAS citescoop-proto_citescoop-proto)
-
-include(GenerateExportHeader)
-generate_export_header(
-    citescoop-proto_citescoop-proto
-    BASE_NAME citescoop-proto
-    EXPORT_FILE_NAME export/proto/proto_export.h
-    CUSTOM_CONTENT_FROM_VARIABLE pragma_suppress_c4251
-)
 
 if(NOT BUILD_SHARED_LIBS)
   target_compile_definitions(citescoop-proto_citescoop-proto PUBLIC CITESCOOP_PROTO_STATIC_DEFINE)
@@ -44,24 +44,36 @@ set_target_properties(
     SOVERSION "${PROJECT_VERSION_MAJOR}"
     EXPORT_NAME citescoop-proto
     OUTPUT_NAME citescoop-proto
+    CXX_CLANG_TIDY ""
 )
 
 target_include_directories(
     citescoop-proto_citescoop-proto ${warning_guard}
     PUBLIC
-    "\$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
-)
-
-target_include_directories(
-    citescoop-proto_citescoop-proto SYSTEM
-    PUBLIC
-    "\$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/export>"
+    "\$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
 )
 
 target_compile_features(citescoop-proto_citescoop-proto PUBLIC cxx_std_20)
 
-find_package(fmt REQUIRED)
-target_link_libraries(citescoop-proto_citescoop-proto PRIVATE fmt::fmt)
+find_package(protobuf CONFIG REQUIRED)
+
+find_program(PROTOC_EXECUTABLE
+    NAMES protoc
+    PATHS
+        "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/x64-linux/tools/protobuf"
+        "${CMAKE_BINARY_DIR}/vcpkg_installed/x64-linux/tools/protobuf"
+        "${CMAKE_SOURCE_DIR}/build/dev/vcpkg_installed/x64-linux/tools/protobuf"
+    NO_DEFAULT_PATH
+    REQUIRED
+)
+
+protobuf_generate(
+    TARGET citescoop-proto_citescoop-proto
+    LANGUAGE cpp
+    PROTOC_EXECUTABLE ${PROTOC_EXECUTABLE}
+)
+
+target_link_libraries(citescoop-proto_citescoop-proto PUBLIC protobuf::libprotobuf)
 
 # ---- Install rules ----
 

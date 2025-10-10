@@ -1,0 +1,15 @@
+// SPDX-FileCopyrightText: 2025 The University of St Andrews
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+syntax = "proto3";
+
+import "src/url.proto";
+import "src/identifiers.proto";
+
+package wikiopencite.proto;
+
+message ExtractedCitation {
+  optional string title = 1;
+  optional Identifiers identifiers = 2;
+  repeated Url urls = 3;
+}
