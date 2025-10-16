@@ -18,8 +18,7 @@ set(package citescoop-proto)
 
 install(
     DIRECTORY
-    include/
-    "${PROJECT_BINARY_DIR}/export/"
+    "${PROJECT_BINARY_DIR}/src/"
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
     COMPONENT citescoop-proto_Development
 )
@@ -66,7 +65,7 @@ install(
 
 install(
     EXPORT citescoop-protoTargets
-    NAMESPACE citescoop-proto::
+    NAMESPACE wikiopencite::
     DESTINATION "${citescoop-proto_INSTALL_CMAKEDIR}"
     COMPONENT citescoop-proto_Development
 )
