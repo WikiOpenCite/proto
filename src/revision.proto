@@ -5,7 +5,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
-import "src/language.proto";
+import "language.proto";
 
 package wikiopencite.proto;
 

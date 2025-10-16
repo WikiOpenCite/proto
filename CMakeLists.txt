@@ -18,51 +18,7 @@ include(cmake/variables.cmake)
 
 # ---- Declare library ----
 
-add_library(
-    citescoop-proto_citescoop-proto
-    src/citation_group.proto
-    src/citation.proto
-    src/extracted_citation.proto
-    src/identifiers.proto
-    src/language.proto
-    src/revision_citations.proto
-    src/revision.proto
-    src/revisions_group.proto
-    src/url.proto
-)
-add_library(wikiopencite::proto ALIAS citescoop-proto_citescoop-proto)
-
-if(NOT BUILD_SHARED_LIBS)
-  target_compile_definitions(citescoop-proto_citescoop-proto PUBLIC CITESCOOP_PROTO_STATIC_DEFINE)
-endif()
-
-set_target_properties(
-    citescoop-proto_citescoop-proto PROPERTIES
-    CXX_VISIBILITY_PRESET hidden
-    VISIBILITY_INLINES_HIDDEN YES
-    VERSION "${PROJECT_VERSION}"
-    SOVERSION "${PROJECT_VERSION_MAJOR}"
-    EXPORT_NAME citescoop-proto
-    OUTPUT_NAME citescoop-proto
-    CXX_CLANG_TIDY ""
-)
-
-target_include_directories(
-    citescoop-proto_citescoop-proto ${warning_guard}
-    PUBLIC
-    "\$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
-)
-
-target_compile_features(citescoop-proto_citescoop-proto PUBLIC cxx_std_20)
-
-find_package(protobuf CONFIG REQUIRED)
-
-protobuf_generate(
-    TARGET citescoop-proto_citescoop-proto
-    LANGUAGE cpp
-)
-
-target_link_libraries(citescoop-proto_citescoop-proto PUBLIC protobuf::libprotobuf)
+add_subdirectory(src)
 
 # ---- Install rules ----
 
