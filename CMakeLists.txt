@@ -7,7 +7,7 @@ include(cmake/prelude.cmake)
 
 project(
     citescoop-proto
-    VERSION 0.1.1
+    VERSION 0.1.2
     DESCRIPTION "Protobuf definitions for citescoop data files"
     HOMEPAGE_URL "https://github.com/WikiOpenCite/citescoop"
     LANGUAGES CXX
