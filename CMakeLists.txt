@@ -57,20 +57,9 @@ target_compile_features(citescoop-proto_citescoop-proto PUBLIC cxx_std_20)
 
 find_package(protobuf CONFIG REQUIRED)
 
-find_program(PROTOC_EXECUTABLE
-    NAMES protoc
-    PATHS
-        "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/x64-linux/tools/protobuf"
-        "${CMAKE_BINARY_DIR}/vcpkg_installed/x64-linux/tools/protobuf"
-        "${CMAKE_SOURCE_DIR}/build/dev/vcpkg_installed/x64-linux/tools/protobuf"
-    NO_DEFAULT_PATH
-    REQUIRED
-)
-
 protobuf_generate(
     TARGET citescoop-proto_citescoop-proto
     LANGUAGE cpp
-    PROTOC_EXECUTABLE ${PROTOC_EXECUTABLE}
 )
 
 target_link_libraries(citescoop-proto_citescoop-proto PUBLIC protobuf::libprotobuf)
