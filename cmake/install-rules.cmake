@@ -3,7 +3,7 @@
 
 if(PROJECT_IS_TOP_LEVEL)
   set(
-      CMAKE_INSTALL_INCLUDEDIR "include/citescoop-proto-${PROJECT_VERSION}"
+      CMAKE_INSTALL_INCLUDEDIR "include/citescoop/proto"
       CACHE STRING ""
   )
   set_property(CACHE CMAKE_INSTALL_INCLUDEDIR PROPERTY TYPE PATH)
@@ -21,6 +21,8 @@ install(
     "${PROJECT_BINARY_DIR}/src/"
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
     COMPONENT citescoop-proto_Development
+    FILES_MATCHING
+    PATTERN "*.h"
 )
 
 install(
