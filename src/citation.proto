@@ -3,8 +3,8 @@
 
 syntax = "proto3";
 
-import "src/extracted_citation.proto";
-import "src/revision.proto";
+import "extracted_citation.proto";
+import "revision.proto";
 
 package wikiopencite.proto;
 

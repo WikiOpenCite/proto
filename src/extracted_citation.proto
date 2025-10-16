@@ -3,8 +3,8 @@
 
 syntax = "proto3";
 
-import "src/url.proto";
-import "src/identifiers.proto";
+import "url.proto";
+import "identifiers.proto";
 
 package wikiopencite.proto;
 
