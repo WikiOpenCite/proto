@@ -1,7 +1,7 @@
 {
   "name": "citescoop-proto",
   "version-semver": "0.1.4",
-  "builtin-baseline": "8485f14efb70fc778b96b3d3681b285e3f10b104",
+  "builtin-baseline": "4334d8b4c8916018600212ab4dd4bbdc343065d1",
   "dependencies": [
     {
       "name": "protobuf",
