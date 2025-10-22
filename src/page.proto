@@ -3,10 +3,12 @@
 
 syntax = "proto3";
 
-import "revision_citations.proto";
+import "citation.proto";
 
 package wikiopencite.proto;
 
-message RevisionsGroup {
-  repeated RevisionCitations revisions = 1;
+message Page {
+  optional string title = 1;
+  optional int64 page_id = 2;
+  repeated Citation citations = 3;
 }

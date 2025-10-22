@@ -3,10 +3,11 @@
 
 syntax = "proto3";
 
-import "citation.proto";
+import "language.proto";
 
 package wikiopencite.proto;
 
-message CitationGroup {
-  repeated Citation citations = 1;
+message FileHeader {
+  optional int64 page_count = 1;
+  optional Language language = 2;
 }
