@@ -3,14 +3,14 @@
 
 add_library(
     citescoop-proto_citescoop-proto
-    citation_group.proto
     citation.proto
     extracted_citation.proto
+    file_header.proto
     identifiers.proto
     language.proto
+    page.proto
     revision_citations.proto
     revision.proto
-    revisions_group.proto
     url.proto
 )
 

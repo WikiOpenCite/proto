@@ -10,5 +10,5 @@ package wikiopencite.proto;
 
 message RevisionCitations {
   optional Revision revision = 1;
-  repeated ExtractedCitation citations = 2;
+  map<string,ExtractedCitation> citations = 2;
 }

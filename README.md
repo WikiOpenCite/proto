@@ -5,17 +5,34 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # Citescoop Protobuf Definitions
 
-This repo provides the protobuf definitions library for citescoop datafiles.
+This repo provides the protobuf definitions library for citescoop
+datafiles.
 
-# Building and installing
+## File format
+
+Citescoop `.pbf` files have the following format:
+
+```
+uint32 - Size of header
+FileHeader - see src/file_header.proto
+```
+
+Followed by a number (specified in the file header) of pages as follows:
+
+```
+uint32 - Size of page
+Page - see src/page.proto
+```
+
+## Building and installing
 
 See the [BUILDING](BUILDING.md) document.
 
-# Contributing
+## Contributing
 
 See the [CONTRIBUTING](CONTRIBUTING.md) document.
 
-# Licensing
+## Licensing
 
 This repo uses the [REUSE](https://reuse.software) standard in order to
 communicate the correct license for the file. For those unfamiliar with
