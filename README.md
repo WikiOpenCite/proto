@@ -15,6 +15,8 @@ Citescoop `.pbf` files have the following format:
 ```
 uint32 - Size of header
 FileHeader - see src/file_header.proto
+uint32 - Size of revisions map
+RevisionMap - see src/revision_map.proto
 ```
 
 Followed by a number (specified in the file header) of pages as follows:
