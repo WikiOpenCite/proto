@@ -1,6 +1,6 @@
 {
   "name": "citescoop-proto",
-  "version-semver": "0.3.0",
+  "version-semver": "0.4.0",
   "builtin-baseline": "74e6536215718009aae747d86d84b78376bf9e09",
   "dependencies": [
     {
