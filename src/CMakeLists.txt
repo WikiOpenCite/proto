@@ -10,6 +10,7 @@ add_library(
     language.proto
     page.proto
     revision_citations.proto
+    revision_map.proto
     revision.proto
     url.proto
 )

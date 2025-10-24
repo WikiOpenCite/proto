@@ -4,12 +4,11 @@
 syntax = "proto3";
 
 import "extracted_citation.proto";
-import "revision.proto";
 
 package wikiopencite.proto;
 
 message Citation {
   optional ExtractedCitation citation = 1;
-  optional Revision revision_added = 2;
-  optional Revision revision_removed = 3;
+  optional int64 revision_added = 2;
+  optional int64 revision_removed = 3;
 }
