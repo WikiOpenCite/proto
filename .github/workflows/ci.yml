@@ -13,7 +13,7 @@ on:
       - main
 
 env:
-  VCPKG_COMMIT: "4334d8b4c8916018600212ab4dd4bbdc343065d1"
+  VCPKG_COMMIT: "74e6536215718009aae747d86d84b78376bf9e09"
 
 jobs:
   lint:
