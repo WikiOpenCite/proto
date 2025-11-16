@@ -9,5 +9,6 @@ package wikiopencite.proto;
 
 message FileHeader {
   optional int64 page_count = 1;
+  optional uint64 revision_count = 3;
   optional Language language = 2;
 }
