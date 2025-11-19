@@ -8,7 +8,7 @@ package wikiopencite.proto;
 message Identifiers {
   optional string doi = 1;
   optional string isbn = 2;
-  optional int32 pmid = 3;
-  optional int32 pmcid = 4;
+  optional uint32 pmid = 3;
+  optional uint32 pmcid = 4;
   optional string issn = 5;
 }

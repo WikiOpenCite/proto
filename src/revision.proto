@@ -9,8 +9,8 @@ import "google/protobuf/timestamp.proto";
 package wikiopencite.proto;
 
 message Revision {
-  optional int64 revision_id = 1;
-  optional int64 parent_id = 2;
+  optional uint64 revision_id = 1;
+  optional uint64 parent_id = 2;
   optional string user = 3;
   optional google.protobuf.Timestamp timestamp = 4;
 }
