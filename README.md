@@ -8,29 +8,42 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 This repo provides the protobuf definitions library for citescoop
 datafiles.
 
+## Files
+
+Citescoop generates a number of different file types during it's
+operation depending upon what it is doing.
+
 ## File format
 
-Citescoop `.pbf` files have the following format:
+All files store a series of protobuf messages in the same format. Each
+file will contain zero or more of the following:
 
 ```
-uint32 - Size of header
-FileHeader - see src/file_header.proto
-
+uint32 - Size of next message
+Message - The protobuf message
 ```
 
-Followed by a number (specified in the file header) of revisions as follows:
+### Extracted Citations
 
-```
-uint32 - Size of revision
-Revision - see src/revision.proto
-```
+Files generated from the extraction procedure for citescoop contain
+messages in the following order.
 
-Followed by a number (specified in the file header) of pages as follows:
+- One `FileHeader` - see [/src/file_header.proto](/src/file_header.proto)
+- Zero or more `Revision` messages. The number is specified in the
+  header. - see [/src/revision.proto](/src/revision.proto)
+- Zero or more `Page` messages. The number is specified in the header. -
+  see [/src/page.proto](/src/page.proto)
 
-```
-uint32 - Size of page
-Page - see src/page.proto
-```
+### OpenAlex datasets
+
+When processing the OpenAlex datasets for use with citescoop, the
+following files are generated:
+
+- `authors.pbf` - Contains zero or more `Author` messages (see
+  [/src/openalex/author.proto](/src/openalex/author.proto))
+- `institutions.pbf` - Contains zero or more `Institution` messages (see [/src/openalex/institution.proto](/src/openalex/institution.proto)
+  )
+- `works.pbf` - Contains zero or more `Work` messages (see [/src/openalex/work.proto](/src/openalex/work.proto))
 
 ## Building and installing
 
