@@ -3,12 +3,13 @@
 
 syntax = "proto3";
 
-import "citation.proto";
+import "citescoop/proto/url.proto";
+import "citescoop/proto/identifiers.proto";
 
 package wikiopencite.proto;
 
-message Page {
+message ExtractedCitation {
   optional string title = 1;
-  optional uint64 page_id = 2;
-  repeated Citation citations = 3;
+  optional Identifiers identifiers = 2;
+  repeated Url urls = 3;
 }

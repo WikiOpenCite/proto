@@ -3,18 +3,18 @@
 
 add_library(
     citescoop-proto_citescoop-proto
-    citation.proto
-    extracted_citation.proto
-    file_header.proto
-    identifiers.proto
-    language.proto
-    page.proto
-    revision_citations.proto
-    revision.proto
-    url.proto
-    openalex/author.proto
-    openalex/institution.proto
-    openalex/work.proto
+    citescoop/proto/citation.proto
+    citescoop/proto/extracted_citation.proto
+    citescoop/proto/file_header.proto
+    citescoop/proto/identifiers.proto
+    citescoop/proto/language.proto
+    citescoop/proto/page.proto
+    citescoop/proto/revision_citations.proto
+    citescoop/proto/revision.proto
+    citescoop/proto/url.proto
+    citescoop/proto/openalex/author.proto
+    citescoop/proto/openalex/institution.proto
+    citescoop/proto/openalex/work.proto
 )
 
 add_library(wikiopencite::proto ALIAS citescoop-proto_citescoop-proto)
