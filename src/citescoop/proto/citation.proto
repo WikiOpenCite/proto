@@ -3,7 +3,7 @@
 
 syntax = "proto3";
 
-import "extracted_citation.proto";
+import "citescoop/proto/extracted_citation.proto";
 
 package wikiopencite.proto;
 

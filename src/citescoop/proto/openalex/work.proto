@@ -4,8 +4,8 @@
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
-import "language.proto";
-import "identifiers.proto";
+import "citescoop/proto/language.proto";
+import "citescoop/proto/identifiers.proto";
 
 package wikiopencite.proto.openalex;
 
