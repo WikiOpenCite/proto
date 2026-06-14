@@ -1,0 +1,33 @@
+// SPDX-FileCopyrightText: 2026 The University of St Andrews
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "language.proto";
+import "identifiers.proto";
+
+package wikiopencite.proto.openalex;
+
+message Work {
+  optional string openalex_id = 1;
+  optional string title = 2;
+  optional google.protobuf.Timestamp publication_date = 3;
+  optional wikiopencite.proto.Language language = 4;
+  optional Work.OACategory oa_status = 5;
+  optional string oa_url = 6;
+  repeated string author_ids = 7;
+  repeated string institution_ids = 8;
+  optional wikiopencite.proto.Identifiers ids = 9;
+
+
+  enum OACategory {
+    OA_CATEGORY_UNSPECIFIED = 0;
+    OA_CATEGORY_DIAMOND = 1;
+    OA_CATEGORY_GOLD = 2;
+    OA_CATEGORY_GREEN = 3;
+    OA_CATEGORY_HYBRID = 4;
+    OA_CATEGORY_BRONZE = 5;
+    OA_CATEGORY_CLOSED = 6;
+  }
+}

@@ -1,0 +1,12 @@
+// SPDX-FileCopyrightText: 2026 The University of St Andrews
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+syntax = "proto3";
+
+package wikiopencite.proto.openalex;
+
+message Author {
+  optional string openalex_id = 1;
+  optional string name = 2;
+  optional string orcid = 3;
+}

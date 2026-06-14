@@ -12,6 +12,9 @@ add_library(
     revision_citations.proto
     revision.proto
     url.proto
+    openalex/author.proto
+    openalex/institution.proto
+    openalex/work.proto
 )
 
 add_library(wikiopencite::proto ALIAS citescoop-proto_citescoop-proto)
