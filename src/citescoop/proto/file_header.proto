@@ -26,7 +26,7 @@ message FileHeader {
   optional FileType type = 4;
   optional uint64 count = 5;
 
-  oneof additional_data {
-    DumpFileAdditionalData dump_file = 6;
+  oneof additional_attributes {
+    DumpFileAdditionalData dump_file_attributes = 6;
   }
 }
