@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 The University of St Andrews
+// SPDX-FileCopyrightText: 2025-2026 The University of St Andrews
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 syntax = "proto3";
@@ -7,8 +7,26 @@ import "citescoop/proto/language.proto";
 
 package wikiopencite.proto;
 
+enum FileType {
+  FILE_TYPE_UNSPECIFIED = 0;
+  FILE_TYPE_PAGES = 1;
+  FILE_TYPE_REVISIONS = 2;
+  FILE_TYPE_OPENALEX_WORKS = 3;
+  FILE_TYPE_OPENALEX_INSTITUTIONS = 4;
+  FILE_TYPE_OPENALEX_AUTHORS = 5;
+}
+
+message DumpFileAdditionalData {
+  Language language = 1;
+}
+
 message FileHeader {
-  optional uint64 page_count = 1;
-  optional uint64 revision_count = 3;
-  optional Language language = 2;
+  reserved 1, 2, 3;
+
+  optional FileType type = 4;
+  optional uint64 count = 5;
+
+  oneof additional_data {
+    DumpFileAdditionalData dump_file = 6;
+  }
 }
