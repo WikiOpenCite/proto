@@ -16,7 +16,8 @@ operation depending upon what it is doing.
 ## File format
 
 All files store a series of protobuf messages in the same format. Each
-file will contain zero or more of the following:
+file will contain a file header indicating the number of messages
+followed by zero or more of the following:
 
 ```
 uint32 - Size of next message
@@ -28,11 +29,10 @@ Message - The protobuf message
 Files generated from the extraction procedure for citescoop contain
 messages in the following order.
 
-- One `FileHeader` - see [/src/file_header.proto](/src/file_header.proto)
-- Zero or more `Revision` messages. The number is specified in the
-  header. - see [/src/revision.proto](/src/revision.proto)
-- Zero or more `Page` messages. The number is specified in the header. -
-  see [/src/page.proto](/src/page.proto)
+Citation extraction will generate two output files:
+
+- `pages.pbf` - Contains zero or more `Page` messages (see [/src/citescoop/proto/page.proto](/src/citescoop/proto/page.proto))
+- `revisions.pbf` - Contains zero or more `Revision` messages (see [/src/citescoop/proto/revision.proto](/src/citescoop/proto/revision.proto))
 
 ### OpenAlex datasets
 
@@ -40,10 +40,10 @@ When processing the OpenAlex datasets for use with citescoop, the
 following files are generated:
 
 - `authors.pbf` - Contains zero or more `Author` messages (see
-  [/src/openalex/author.proto](/src/openalex/author.proto))
-- `institutions.pbf` - Contains zero or more `Institution` messages (see [/src/openalex/institution.proto](/src/openalex/institution.proto)
+  [/src/citescoop/proto/openalex/author.proto](/src/citescoop/proto/openalex/author.proto))
+- `institutions.pbf` - Contains zero or more `Institution` messages (see [/src/citescoop/proto/openalex/institution.proto](/src/citescoop/proto/openalex/institution.proto)
   )
-- `works.pbf` - Contains zero or more `Work` messages (see [/src/openalex/work.proto](/src/openalex/work.proto))
+- `works.pbf` - Contains zero or more `Work` messages (see [/src/citescoop/proto/openalex/work.proto](/src/citescoop/proto/openalex/work.proto))
 
 ## Building and installing
 

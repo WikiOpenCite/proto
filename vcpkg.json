@@ -1,6 +1,6 @@
 {
   "name": "citescoop-proto",
-  "version-semver": "0.6.0-alpha.2",
+  "version-semver": "0.6.0",
   "dependencies": [
     {
       "name": "protobuf",
