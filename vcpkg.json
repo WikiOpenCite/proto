@@ -4,7 +4,7 @@
   "dependencies": [
     {
       "name": "protobuf",
-      "version>=": "6.33.4"
+      "version>=": "7.36.2"
     }
   ]
 }
